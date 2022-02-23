@@ -142,6 +142,8 @@
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html#src">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cell.html#module-cell">cell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_cell.html#module-test_cell">test_cell module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="test_world.html#module-test_world">test_world module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#module-world">world module</a></li>
 </ul>
@@ -160,6 +162,8 @@
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html#src">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cell.html#module-cell">cell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_cell.html#module-test_cell">test_cell module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="test_world.html#module-test_world">test_world module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#module-world">world module</a></li>
 </ul>
@@ -192,38 +196,6 @@ R = reproduce</p>
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><code class="sig-prename descclassname"><span class="pre">world.</span></code><code class="sig-name descname"><span class="pre">Apocalypse</span></code><a class="reference internal" href="_modules/world.html#Apocalypse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.Apocalypse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception raised when the last cell dies.</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="world.Cell">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><code class="sig-prename descclassname"><span class="pre">world.</span></code><code class="sig-name descname"><span class="pre">Cell</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">genome</span></span></em>, <em><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em><span class="n"><span class="pre">recorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/world.html#Cell"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.Cell" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A cell in the world.</p>
-<p>The cell is represented by a 2D list.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="world.Cell.move">
-<code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">direction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/world.html#Cell.move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.Cell.move" title="Permalink to this definition">¶</a></dt>
-<dd><p>Move the cell in the given direction.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="world.Cell.recorder">
-<code class="sig-name descname"><span class="pre">recorder</span></code><a class="headerlink" href="#world.Cell.recorder" title="Permalink to this definition">¶</a></dt>
-<dd><p>record actions of the cell if is not None</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="world.Cell.reproduce">
-<code class="sig-name descname"><span class="pre">reproduce</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/world.html#Cell.reproduce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.Cell.reproduce" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reproduce the cell.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="world.Cell.step">
-<code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/world.html#Cell.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.Cell.step" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform a single step of the cell.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
