@@ -67,20 +67,20 @@ def test_single_move():
     """
     Test the smallest genome with a single 'N' move, in a 3 x 3 world.
 
-    At the beginning, the cell is placed in the center:
+    At the beginning, the cell is placed in the center::
 
         [
-            0, 0, 0,
-            0, 1, 0,
-            0, 0, 0,
+            [0, 0, 0],
+            [0, 1, 0],
+            [0, 0, 0],
         ]
 
-    Based on its genome ('N') the cell should move to the north, and the resulting image should be:
+    Based on its genome ('N') the cell should move to the north, and the resulting image should be::
 
         [
-            0, 1, 0,
-            0, 1, 0,
-            0, 0, 0,
+            [0, 1, 0],
+            [0, 1, 0],
+            [0, 0, 0],
         ]
     """
     world = World(3, 3)
