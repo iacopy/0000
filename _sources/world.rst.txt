@@ -1,7 +1,7 @@
-foobar module
-=============
+world module
+============
 
-.. automodule:: foobar
+.. automodule:: world
    :members:
    :undoc-members:
    :show-inheritance:

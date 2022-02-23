@@ -1,9 +1,9 @@
-.. Cleanpython documentation master file, created by
+.. 0000 documentation master file, created by
    sphinx-quickstart on Tue Jan 25 10:00:00 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Cleanpython's documentation!
+Welcome to 0000's documentation!
 =============================================
 
 .. toctree::
