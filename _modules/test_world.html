@@ -127,8 +127,10 @@
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html#src">src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cell.html#module-cell">cell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_cell.html#module-test_cell">test_cell module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../test_world.html#module-test_world">test_world module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../world.html">world module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html#module-world">world module</a></li>
 </ul>
 </li>
 </ul>
@@ -145,8 +147,10 @@
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html#src">src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cell.html#module-cell">cell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_cell.html#module-test_cell">test_cell module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../test_world.html#module-test_world">test_world module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../world.html">world module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html#module-world">world module</a></li>
 </ul>
 </li>
 </ul>
@@ -163,62 +167,9 @@
 <span class="kn">import</span> <span class="nn">pytest</span>
 
 <span class="c1"># My stuff</span>
+<span class="kn">from</span> <span class="nn">cell</span> <span class="kn">import</span> <span class="n">Cell</span>
 <span class="kn">from</span> <span class="nn">world</span> <span class="kn">import</span> <span class="n">Apocalypse</span>
-<span class="kn">from</span> <span class="nn">world</span> <span class="kn">import</span> <span class="n">Cell</span>
 <span class="kn">from</span> <span class="nn">world</span> <span class="kn">import</span> <span class="n">World</span>
-
-
-<div class="viewcode-block" id="test_unexpected_gene"><a class="viewcode-back" href="../test_world.html#test_world.test_unexpected_gene">[docs]</a><span class="k">def</span> <span class="nf">test_unexpected_gene</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Test that the cell raises an exception when it encounters unexpected genes.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">cell</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
-        <span class="n">cell</span><span class="o">.</span><span class="n">step</span><span class="p">()</span></div>
-
-
-<div class="viewcode-block" id="test_all_genes"><a class="viewcode-back" href="../test_world.html#test_world.test_all_genes">[docs]</a><span class="k">def</span> <span class="nf">test_all_genes</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Test a cell with all possible genes.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">cell</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="s2">&quot;NSWE1234&quot;</span><span class="p">,</span> <span class="n">recorder</span><span class="o">=</span><span class="p">[])</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">dna_position</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">recorder</span> <span class="o">==</span> <span class="p">[]</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">genome</span> <span class="o">==</span> <span class="s2">&quot;NSWE1234&quot;</span>
-    <span class="n">cell</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">dna_position</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">recorder</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">cell</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">dna_position</span> <span class="o">==</span> <span class="mi">2</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">recorder</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">cell</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">dna_position</span> <span class="o">==</span> <span class="mi">3</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">recorder</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">cell</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">dna_position</span> <span class="o">==</span> <span class="mi">4</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">recorder</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">cell</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">dna_position</span> <span class="o">==</span> <span class="mi">5</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">recorder</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">cell</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">dna_position</span> <span class="o">==</span> <span class="mi">6</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">recorder</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">cell</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">dna_position</span> <span class="o">==</span> <span class="mi">7</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">recorder</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">cell</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">dna_position</span> <span class="o">==</span> <span class="mi">8</span>
-    <span class="k">assert</span> <span class="n">cell</span><span class="o">.</span><span class="n">recorder</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="test_single_move"><a class="viewcode-back" href="../test_world.html#test_world.test_single_move">[docs]</a><span class="k">def</span> <span class="nf">test_single_move</span><span class="p">():</span>
