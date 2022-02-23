@@ -414,8 +414,8 @@ function-naming-style=snake_case
 good-names=i,
            j,
            k,
-           ex,
-           Run,
+           x,
+           y,
            _
 
 # Include a hint for the correct naming format with invalid-name.
