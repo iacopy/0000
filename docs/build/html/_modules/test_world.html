@@ -128,7 +128,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html#src">src</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../test_world.html#module-test_world">test_world module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../world.html#module-world">world module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">world module</a></li>
 </ul>
 </li>
 </ul>
@@ -146,7 +146,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html#src">src</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../test_world.html#module-test_world">test_world module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../world.html#module-world">world module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">world module</a></li>
 </ul>
 </li>
 </ul>
@@ -225,20 +225,20 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Test the smallest genome with a single &#39;N&#39; move, in a 3 x 3 world.</span>
 
-<span class="sd">    At the beginning, the cell is placed in the center:</span>
+<span class="sd">    At the beginning, the cell is placed in the center::</span>
 
 <span class="sd">        [</span>
-<span class="sd">            0, 0, 0,</span>
-<span class="sd">            0, 1, 0,</span>
-<span class="sd">            0, 0, 0,</span>
+<span class="sd">            [0, 0, 0],</span>
+<span class="sd">            [0, 1, 0],</span>
+<span class="sd">            [0, 0, 0],</span>
 <span class="sd">        ]</span>
 
-<span class="sd">    Based on its genome (&#39;N&#39;) the cell should move to the north, and the resulting image should be:</span>
+<span class="sd">    Based on its genome (&#39;N&#39;) the cell should move to the north, and the resulting image should be::</span>
 
 <span class="sd">        [</span>
-<span class="sd">            0, 1, 0,</span>
-<span class="sd">            0, 1, 0,</span>
-<span class="sd">            0, 0, 0,</span>
+<span class="sd">            [0, 1, 0],</span>
+<span class="sd">            [0, 1, 0],</span>
+<span class="sd">            [0, 0, 0],</span>
 <span class="sd">        ]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
