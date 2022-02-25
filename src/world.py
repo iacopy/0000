@@ -2,7 +2,7 @@
 A cell can move and reproduce within the 2D grid world,
 based on the steps encoded in the cell DNA (genome).
 
-The 2D grid is a matrix representing an image which is
+The 2D grid is a matrix representing an matrix which is
 painted during the cell movement.
 
 The DNA is a list of characters that define the behaviour of the cell:
@@ -17,7 +17,7 @@ W = left
 4 = south-east
 R = reproduce
 
-The total behaviour, and final image, is determined by the single starting DNA.
+The total behaviour, and final matrix, is determined by the single starting DNA.
 """
 
 
@@ -38,7 +38,7 @@ class World:
         self.width = width
         self.height = height
         self.cells = []
-        self.image = [[0 for _ in range(width)] for _ in range(height)]
+        self.matrix = [[0 for _ in range(width)] for _ in range(height)]
 
     def add_cell(self, cell, position):
         """
@@ -48,12 +48,12 @@ class World:
         cell.y = position[1]
         self.cells.append(cell)
 
-    def update_image(self):
+    def update_matrix(self):
         """
-        Update the current image of the world.
+        Update the current matrix of the world.
         """
         for cell in self.cells:
-            self.image[cell.y][cell.x] = cell.color
+            self.matrix[cell.y][cell.x] = cell.color
 
     def step(self):
         """
@@ -77,10 +77,10 @@ class World:
 
         if new_cells:
             self.cells.extend(new_cells)
-        self.update_image()
+        self.update_matrix()
 
-    def get_image(self):
+    def get_matrix(self):
         """
-        Return the current image of the world.
+        Return the current matrix of the world.
         """
-        return self.image
+        return self.matrix

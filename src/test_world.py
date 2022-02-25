@@ -33,10 +33,10 @@ def test_single_move():
     world = World(3, 3)
     cell = Cell("N")
     world.add_cell(cell, (1, 1))
-    world.update_image()
+    world.update_matrix()
 
     assert world.cells == [cell]
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [0, 0, 0],
         [0, 1, 0],
         [0, 0, 0],
@@ -46,7 +46,7 @@ def test_single_move():
     world.step()
     assert cell.dna_position == 1
 
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [0, 1, 0],
         [0, 1, 0],
         [0, 0, 0],
@@ -66,12 +66,12 @@ def test_nre():
     world = World(5, 5)
     cell_1 = Cell("NRE")
     world.add_cell(cell_1, (2, 2))
-    world.update_image()
+    world.update_matrix()
 
     # 1. cell_1 moves to the north (N) --> pos=(2, 1)
     world.step()
     assert cell_1.x, cell_1.y == (2, 1)
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [0, 0, 0, 0, 0],
         [0, 0, 1, 0, 0],
         [0, 0, 1, 0, 0],
@@ -91,7 +91,7 @@ def test_nre():
     world.step()
     assert cell_1.x, cell_1.y == (3, 1)
     assert cell_2.x, cell_2.y == (2, 0)
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [0, 0, 1, 0, 0],
         [0, 0, 1, 1, 0],
         [0, 0, 1, 0, 0],
@@ -108,13 +108,13 @@ def test_dna_read_cycle():
     world = World(2, 1)
     cell = Cell("EW", recorder=[])
     world.add_cell(cell, (0, 0))
-    world.update_image()
-    assert world.get_image() == [
+    world.update_matrix()
+    assert world.get_matrix() == [
         [1, 0],
     ]
     world.step()
     assert cell.recorder == ["E"]
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [1, 1],
     ]
     world.step()
@@ -122,7 +122,7 @@ def test_dna_read_cycle():
     world.step()
     assert cell.recorder == ["E", "W", "E"]
     world.step()
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [1, 1],
     ]
     assert cell.recorder == ["E", "W", "E", "W"]
@@ -137,11 +137,11 @@ def test_death_by_world_limit():
     # Create a cell in the bottom right corner
     cell = Cell("NWNW", recorder=[])
     world.add_cell(cell, (1, 1))
-    world.update_image()
+    world.update_matrix()
 
     # The cell should be alive
     assert world.cells == [cell]
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [0, 0],
         [0, 1],
     ]
@@ -150,7 +150,7 @@ def test_death_by_world_limit():
     world.step()
     assert cell.recorder == ["N"]
     assert world.cells == [cell]
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [0, 1],
         [0, 1],
     ]
@@ -159,7 +159,7 @@ def test_death_by_world_limit():
     # After 2 steps, the cell should be still alive
     assert cell.recorder == ["N", "W"]
     assert world.cells == [cell]
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [1, 1],
         [0, 1],
     ]
@@ -167,7 +167,7 @@ def test_death_by_world_limit():
     world.step()
     # After 3 steps, the cell should be dead
     assert len(world.cells) == 0
-    assert world.get_image() == [
+    assert world.get_matrix() == [
         [1, 1],
         [0, 1],
     ]
