@@ -17,6 +17,18 @@ class Cell:
         #: record actions of the cell if is not None
         self.recorder = recorder
 
+        self.functions = {
+            'N': (self.move, {'y': -1}),
+            'S': (self.move, {'y': 1}),
+            'E': (self.move, {'x': 1}),
+            'W': (self.move, {'x': -1}),
+            '1': (self.move, {'x': 1, 'y': -1}),
+            '2': (self.move, {'x': -1, 'y': -1}),
+            '3': (self.move, {'x': -1, 'y': 1}),
+            '4': (self.move, {'x': 1, 'y': 1}),
+            'R': (self.reproduce, {}),
+        }
+
     def step(self):
         """
         Perform a single step of the cell.
@@ -24,48 +36,21 @@ class Cell:
         if self.dna_position >= len(self.genome):
             self.dna_position = 0
         action = self.genome[self.dna_position]
-        ret = self.move(action)
-        self.dna_position += 1
         if self.recorder is not None:
             self.recorder.append(action)
-        return ret
 
-    def move(self, direction):  # pylint: disable=too-many-return-statements
+        if action in self.functions:
+            self.dna_position += 1
+            func, kwargs = self.functions[action]
+            return func(**kwargs)
+        raise ValueError(f'Unknown gene: {action}')
+
+    def move(self, x=0, y=0):
         """
         Move the cell in the given direction.
         """
-        if direction == "N":
-            self.y -= 1
-            return None
-        if direction == "S":
-            self.y += 1
-            return None
-        if direction == "E":
-            self.x += 1
-            return None
-        if direction == "W":
-            self.x -= 1
-            return None
-        if direction == "1":
-            self.x += 1
-            self.y -= 1
-            return None
-        if direction == "2":
-            self.x -= 1
-            self.y -= 1
-            return None
-        if direction == "3":
-            self.x -= 1
-            self.y += 1
-            return None
-        if direction == "4":
-            self.x += 1
-            self.y += 1
-            return None
-        if direction == "R":
-            return self.reproduce()
-
-        raise ValueError(f'Unknown direction: {direction}')
+        self.x += x
+        self.y += y
 
     def reproduce(self):
         """
