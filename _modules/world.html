@@ -164,7 +164,7 @@
 <span class="sd">A cell can move and reproduce within the 2D grid world,</span>
 <span class="sd">based on the steps encoded in the cell DNA (genome).</span>
 
-<span class="sd">The 2D grid is a matrix representing an image which is</span>
+<span class="sd">The 2D grid is a matrix representing an matrix which is</span>
 <span class="sd">painted during the cell movement.</span>
 
 <span class="sd">The DNA is a list of characters that define the behaviour of the cell:</span>
@@ -179,7 +179,7 @@
 <span class="sd">4 = south-east</span>
 <span class="sd">R = reproduce</span>
 
-<span class="sd">The total behaviour, and final image, is determined by the single starting DNA.</span>
+<span class="sd">The total behaviour, and final matrix, is determined by the single starting DNA.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
@@ -200,7 +200,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cells</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">)]</span>
 
 <div class="viewcode-block" id="World.add_cell"><a class="viewcode-back" href="../world.html#world.World.add_cell">[docs]</a>    <span class="k">def</span> <span class="nf">add_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -210,12 +210,12 @@
         <span class="n">cell</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="World.update_image"><a class="viewcode-back" href="../world.html#world.World.update_image">[docs]</a>    <span class="k">def</span> <span class="nf">update_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="World.update_matrix"><a class="viewcode-back" href="../world.html#world.World.update_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">update_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Update the current image of the world.</span>
+<span class="sd">        Update the current matrix of the world.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">[</span><span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">][</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">color</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">cell</span><span class="o">.</span><span class="n">y</span><span class="p">][</span><span class="n">cell</span><span class="o">.</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">color</span></div>
 
 <div class="viewcode-block" id="World.step"><a class="viewcode-back" href="../world.html#world.World.step">[docs]</a>    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -239,13 +239,13 @@
 
         <span class="k">if</span> <span class="n">new_cells</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">new_cells</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">update_image</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_matrix</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="World.get_image"><a class="viewcode-back" href="../world.html#world.World.get_image">[docs]</a>    <span class="k">def</span> <span class="nf">get_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="World.get_matrix"><a class="viewcode-back" href="../world.html#world.World.get_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">get_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the current image of the world.</span>
+<span class="sd">        Return the current matrix of the world.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span></div></div>
 </pre></div>
 
           </div>

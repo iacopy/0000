@@ -178,7 +178,7 @@
 <span id="world-module"></span><h1>world module<a class="headerlink" href="#module-world" title="Permalink to this headline">¶</a></h1>
 <p>A cell can move and reproduce within the 2D grid world,
 based on the steps encoded in the cell DNA (genome).</p>
-<p>The 2D grid is a matrix representing an image which is
+<p>The 2D grid is a matrix representing an matrix which is
 painted during the cell movement.</p>
 <p>The DNA is a list of characters that define the behaviour of the cell:</p>
 <p>N = forward
@@ -190,7 +190,7 @@ W = left
 3 = south-west
 4 = south-east
 R = reproduce</p>
-<p>The total behaviour, and final image, is determined by the single starting DNA.</p>
+<p>The total behaviour, and final matrix, is determined by the single starting DNA.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="world.Apocalypse">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><code class="sig-prename descclassname"><span class="pre">world.</span></code><code class="sig-name descname"><span class="pre">Apocalypse</span></code><a class="reference internal" href="_modules/world.html#Apocalypse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.Apocalypse" title="Permalink to this definition">¶</a></dt>
@@ -211,9 +211,9 @@ R = reproduce</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="world.World.get_image">
-<code class="sig-name descname"><span class="pre">get_image</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/world.html#World.get_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.World.get_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the current image of the world.</p>
+<dt class="sig sig-object py" id="world.World.get_matrix">
+<code class="sig-name descname"><span class="pre">get_matrix</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/world.html#World.get_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.World.get_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current matrix of the world.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -223,9 +223,9 @@ R = reproduce</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="world.World.update_image">
-<code class="sig-name descname"><span class="pre">update_image</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/world.html#World.update_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.World.update_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the current image of the world.</p>
+<dt class="sig sig-object py" id="world.World.update_matrix">
+<code class="sig-name descname"><span class="pre">update_matrix</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/world.html#World.update_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#world.World.update_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the current matrix of the world.</p>
 </dd></dl>
 
 </dd></dl>
